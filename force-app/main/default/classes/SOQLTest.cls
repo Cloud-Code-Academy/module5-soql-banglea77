@@ -145,22 +145,24 @@
 	 }
  
 	 //Q5
-	 @IsTest
-	 static void testGetAccountCount() {
-		 // Generate random number of test account between 1 and 10
-		 Integer numAccounts = (Integer) Math.floor(Math.random() * 10) + 1;
-		 List<Account> accounts = new List<Account>();
-		 for (Integer i = 0; i < numAccounts; i++) {
-			 accounts.add(new Account(Name = 'Test Account ' + i));
-		 }
-		 insert accounts;
- 
-		 // Call the method to test
-		 Integer accountCount = SOQL.getAccountCount(); //Replace null with your method call from SOQL class
- 
-		 // Assert that the number of accounts returned is correct
-		 System.assertEquals(numAccounts, accountCount, 'Number of accounts returned is incorrect.');
-	 }
+	 @isTest
+	static void testGetAccountCount() {
+    		// Generate a random number of test accounts between 1 and 10
+    		Integer numAccounts = Integer.valueOf(Math.random() * 10) + 1;
+   	 	List<Account> accounts = new List<Account>();
+    
+    		for (Integer i = 0; i < numAccounts; i++) {
+        	accounts.add(new Account(Name = 'Test Account ' + i));
+    		}
+    	insert accounts;
+
+    	// Call the method to test
+    	Integer accountCount = SOQL.getAccountCount();
+
+    	// Assert that the number of accounts returned is correct
+    	System.assertEquals(numAccounts, accountCount, 'Number of accounts returned is incorrect.');
+	}
+
  
 	 //Q6
 	 @IsTest
